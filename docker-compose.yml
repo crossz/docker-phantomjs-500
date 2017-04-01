@@ -2,6 +2,7 @@ version: '2'
 
 services:
   phantomjs2:
+    build: .
     image: crossz/docker-phantomjs-500
     command: phantomjs 500.js 0
 

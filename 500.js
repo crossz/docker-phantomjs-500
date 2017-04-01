@@ -87,8 +87,8 @@ page.onError = function (msg, trace) {
 };
 
 page.onResourceError = function (resourceError) {
-    console.log(new Date() + 'Unable to load resource (#' + resourceError.id + 'URL:' + resourceError.url + ')');
-    console.log(new Date() + 'Error code: ' + resourceError.errorCode + '. Description: ' + resourceError.errorString);
+    console.log(new Date() + '... Unable to load resource (#' + resourceError.id + 'URL:' + resourceError.url + ')');
+    console.log(new Date() + '... Error code: ' + resourceError.errorCode + '. Description: ' + resourceError.errorString);
 };
 
 var url = "http://live.500.com";
@@ -107,9 +107,9 @@ if (args.length == 3) {
 setInterval(function () {
 	var catchUrl = url + '/?e=' + getDateFromNow(days);
     page.open(catchUrl, function (status) {
-        console.log(new Date() + 'open url[' + catchUrl + '] status is ' + status);
+        console.log(new Date() + 'open url[' + catchUrl + '] status is ----==== ====---- ' + status);
         if (status !== 'success') {
-            console.log(new Date() + 'Unable to access network');
+            console.log(new Date() + 'Unable to access network!!!!!!!!!!');
         } else {
             console.log(new Date() + '[page load status] ' + JSON.stringify(status));
 
@@ -122,7 +122,7 @@ setInterval(function () {
                     console.log('All clear!');
 //                    phantom.exit(status !== 'success' ? 1 : 0);
                 }
-            }, 750);
+            }, 400);
 
             window.setTimeout(function () {
                 t = Date.now();
@@ -155,7 +155,7 @@ setInterval(function () {
                 console.log('Loading time ' + t + ' millsec');
                 console.log(catchUrl);
                 //phantom.exit(status !== 'success' ? 1 : 0);
-            }, 10000);
+            }, 15000);
         }
     });
 }, CATCH_PERIOD_MILLS);
